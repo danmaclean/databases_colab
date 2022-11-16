@@ -1,0 +1,31 @@
+Command line: /tsl/software/testing/bin/core/../..//spades/3.7.1/x86_64/bin/spades.py --only-assembler --12 /hpc-home/macleand/spades/SRR4434292.fastq -o /hpc-home/macleand/spades/test_assembly 
+
+System information:
+  SPAdes version: 3.7.1
+  Python version: 2.7.5
+  OS: Linux-3.10.0-1160.76.1.el7.x86_64-x86_64-with-centos-7.9.2009-Core
+
+Output dir: /hpc-home/macleand/spades/test_assembly
+Mode: ONLY assembling (without read error correction)
+Debug mode is turned OFF
+
+Dataset parameters:
+  Multi-cell mode (you should set '--sc' flag if input data was obtained with MDA (single-cell) technology or --meta flag if processing metagenomic dataset)
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: ['/hpc-home/macleand/spades/SRR4434292.fastq']
+      single reads: not specified
+Assembly parameters:
+  k: automatic selection based on read length
+  Mismatch careful mode is turned OFF
+  Repeat resolution is enabled
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /hpc-home/macleand/spades/test_assembly/tmp
+  Threads: 16
+  Memory limit (in Gb): 125
+

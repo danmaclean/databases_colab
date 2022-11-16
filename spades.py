@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
 import subprocess
-cmd = ["wget", "-q", "https://github.com/danmaclean/databases_colab/blob/main/test_assembly.tar.gz", "-O", "test_assembly.tar.gz"]
-subprocess.call(cmd)
-cmd = ["tar", "-zxf",  "test_assembly.tar.gz"]
+cmd = ["wget", "-q", "-m", "https://github.com/danmaclean/databases_colab/blob/main/test_assembly"]
 subprocess.call(cmd)
 message = """
 Command line: /usr/local/bin/spades.py	--only-assembler --12	/content/SRR4434292.fastq	-o	/content/test_assembly	

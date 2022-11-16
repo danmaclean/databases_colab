@@ -1,0 +1,4 @@
+- left reads: [/hpc-home/macleand/spades/test_assembly/split_input/SRR4434292_1.fastq]
+  orientation: fr
+  right reads: [/hpc-home/macleand/spades/test_assembly/split_input/SRR4434292_2.fastq]
+  type: paired-end
