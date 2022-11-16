@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 import subprocess
-cmd = ["wget", "-q", "-r", "--no-parent", "https://github.com/danmaclean/databases_colab/blob/main/test_assembly/"]
-subprocess.call(cmd)
+import os
+files = ["assembly_graph.fastq", "before_rr.fasta", "contigs.fasta", "contigs.path",
+         "dataset.info", "input_dataset.yml", "params.txt", "scaffolds.fasta",
+         "scaffolds.paths", "spades.log", "warnings.log"]
+
 message = """
 Command line: /usr/local/bin/spades.py	--only-assembler --12	/content/SRR4434292.fastq	-o	/content/test_assembly	
 
@@ -61,3 +64,15 @@ Reads length: 301
 """
 
 print(message)
+
+try:
+    os.mkdir("test_assembly")
+except FileExistsError:
+    pass
+
+for f in files
+    url = "https://github.com/danmaclean/databases_colab/blob/main/test_assembly/" + f
+    cmd = ["wget", "-q", url]
+    subprocess.call(cmd)
+    dest = "test_assembly" + f
+    os.rename(f, dest)
