@@ -2,6 +2,7 @@
 
 import subprocess
 import os
+import time
 files = ["assembly_graph.fastq", "before_rr.fasta", "contigs.fasta", "contigs.path",
          "dataset.info", "input_dataset.yml", "params.txt", "scaffolds.fasta",
          "scaffolds.paths", "spades.log", "warnings.log"]
@@ -74,5 +75,6 @@ for f in files:
     url = "https://github.com/danmaclean/databases_colab/blob/main/test_assembly/" + f
     cmd = ["wget", "-q", url]
     subprocess.call(cmd)
-    dest = "test_assembly" + f
+    time.sleep(5)
+    dest = "test_assembly/" + f
     os.rename(f, dest)
