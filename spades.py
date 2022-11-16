@@ -3,8 +3,8 @@
 import subprocess
 import os
 import time
-files = ["assembly_graph.fastg", "before_rr.fasta", "contigs.fasta", "contigs.path",
-         "dataset.info", "input_dataset.yml", "params.txt", "scaffolds.fasta",
+files = ["assembly_graph.fastg", "before_rr.fasta", "contigs.fasta", "contigs.paths",
+         "dataset.info", "input_dataset.yaml", "params.txt", "scaffolds.fasta",
          "scaffolds.paths", "spades.log", "warnings.log"]
 
 message = """
