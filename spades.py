@@ -70,7 +70,7 @@ try:
 except FileExistsError:
     pass
 
-for f in files
+for f in files:
     url = "https://github.com/danmaclean/databases_colab/blob/main/test_assembly/" + f
     cmd = ["wget", "-q", url]
     subprocess.call(cmd)
