@@ -3,7 +3,7 @@
 import subprocess
 import os
 import time
-files = ["assembly_graph.fastq", "before_rr.fasta", "contigs.fasta", "contigs.path",
+files = ["assembly_graph.fastg", "before_rr.fasta", "contigs.fasta", "contigs.path",
          "dataset.info", "input_dataset.yml", "params.txt", "scaffolds.fasta",
          "scaffolds.paths", "spades.log", "warnings.log"]
 
