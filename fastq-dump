@@ -32,9 +32,7 @@ else:
         subprocess.call(cmd)
         cmd = ["wget", url2]
         subprocess.call(cmd)
-        cmd = ["seqfu", "ilv", "-1", req + "_1.fastq.gz", "-2", req + "_2.fastq.gz", "-o", req + ".fastq.gz"]
-        subprocess.call(cmd)
-        cmd = ['gunzip', "-f", req + ".fastq.gz"]
+        cmd = ["seqfu", "ilv", "-1", req + "_1.fastq.gz", "-2", req + "_2.fastq.gz", "-o", req + ".fastq"]
         subprocess.call(cmd)
         cmd = ['rm', req + "_1.fastq.gz", req + "_2.fastq.gz"]
     message = '''Read {c} spots for {r}
