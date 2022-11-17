@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+
+acc_to_read_count = {
+    "SRR4434292": 399928, #genomic
+    "SRR3144708": 10691872, #8h
+    "SRR3144643" : 9339062 #14h
+}
+
+acc_to_file = {
+    "SRR3144708" : "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR314/008/SRR3144708/SRR3144708",
+    "SRR3144643" : "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR314/003/SRR3144643/SRR3144643",
+    "SRR4434292" : "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR443/002/SRR4434292/SRR4434292.fastq.gz"
+}
+
+import sys
+import subprocess
+req = sys.argv[1]
+
+if not req in acc_to_read_count.keys():
+    print("{} is not a recognised accession, please check your request". format(req))
+
+    if req == "SRR4434292":
+        cmd = ["wget", acc_to_file[req]]
+    else:
+        url1 = acc_to_file[req] + "_1.fastq.gz"
+        url2 = acc_to_file[req] + "_2.fastq.gz"
+        cmd = ["wget", url1]
+        subprocess.call(cmd)
+        cmd = ["wget", url2]
+        subprocess.call(cmd)
+        cmd = ["seqfu", "ilv", "-1", req + "_1.fastq.gz", "-2", req + "_2.fastq.gz", "-o", req + ".fastq.gz"]
+        subprocess.call(cmd)
+        cmd = ['gunzip', req + ".fastq.gz"]
+        subprocess.call(cmd)
+        cmd = ['rm', req + "_1.fastq.gz", req + "_2.fastq.gz"]
+    message = '''Read {c} spots for {r}
+Written {c} spots for {r}
+    '''.format(c=acc_to_read_count[req], r = req)
+    print(message)
