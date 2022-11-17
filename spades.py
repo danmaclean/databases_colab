@@ -72,7 +72,7 @@ except FileExistsError:
     pass
 
 for f in files:
-    url = "https://github.com/danmaclean/databases_colab/blob/main/test_assembly/" + f
+    url = "https://raw.githubusercontent.com/danmaclean/databases_colab/main/test_assembly/" + f
     cmd = ["wget", "-q", url]
     subprocess.call(cmd)
     time.sleep(5)
