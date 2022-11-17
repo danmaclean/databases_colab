@@ -23,7 +23,7 @@ else:
     if req == "SRR4434292":
         cmd = ["wget", acc_to_file[req]]
         subprocess.call(cmd)
-        cmd = ["gunzip", "SRR4434292.fastq.gz"]
+        cmd = ["gunzip", "-f", "SRR4434292.fastq.gz"]
         subprocess.call(cmd)
     else:
         url1 = acc_to_file[req] + "_1.fastq.gz"
@@ -34,7 +34,7 @@ else:
         subprocess.call(cmd)
         cmd = ["seqfu", "ilv", "-1", req + "_1.fastq.gz", "-2", req + "_2.fastq.gz", "-o", req + ".fastq.gz"]
         subprocess.call(cmd)
-        cmd = ['gunzip', req + ".fastq.gz"]
+        cmd = ['gunzip', "-f", req + ".fastq.gz"]
         subprocess.call(cmd)
         cmd = ['rm', req + "_1.fastq.gz", req + "_2.fastq.gz"]
     message = '''Read {c} spots for {r}
