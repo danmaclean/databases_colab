@@ -19,9 +19,12 @@ req = sys.argv[1]
 
 if not req in acc_to_read_count.keys():
     print("{} is not a recognised accession, please check your request". format(req))
-
+else:
     if req == "SRR4434292":
         cmd = ["wget", acc_to_file[req]]
+        subprocess.call(cmd)
+        cmd = ["gunzip", "SRR4434292.fastq.gz"]
+        subprocess.call(cmd)
     else:
         url1 = acc_to_file[req] + "_1.fastq.gz"
         url2 = acc_to_file[req] + "_2.fastq.gz"
